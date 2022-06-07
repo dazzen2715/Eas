@@ -1,0 +1,47 @@
+{
+  "applications": ["easyparking"],
+  "changelogDate": "20220607010032",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "empleado",
+  "fields": [
+    {
+      "fieldName": "nombreEmpleado",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "apellidoEmpleado",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "cargoEmpleado",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "20"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Empleado",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "facturacion",
+      "otherEntityRelationshipName": "empleado",
+      "relationshipName": "facturacion",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

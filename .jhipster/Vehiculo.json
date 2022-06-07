@@ -1,0 +1,39 @@
+{
+  "applications": ["easyparking"],
+  "changelogDate": "20220607010632",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "vehiculo",
+  "fields": [
+    {
+      "fieldName": "placa",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "20"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Vehiculo",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "marcaVehiculo",
+      "otherEntityName": "tipoVehiculo",
+      "otherEntityRelationshipName": "vehiculo",
+      "relationshipName": "tipoVehiculo",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "horaIngreso",
+      "otherEntityName": "registro",
+      "otherEntityRelationshipName": "vehiculo",
+      "relationshipName": "registro",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "no"
+}

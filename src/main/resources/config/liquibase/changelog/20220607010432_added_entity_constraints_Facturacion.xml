@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Facturacion.
+    -->
+    <changeSet id="20220607010432-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="registro_id"
+                                 baseTableName="facturacion"
+                                 constraintName="fk_facturacion__registro_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="registro"/>
+
+        <addForeignKeyConstraint baseColumnNames="cliente_id"
+                                 baseTableName="facturacion"
+                                 constraintName="fk_facturacion__cliente_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cliente"/>
+
+        <addForeignKeyConstraint baseColumnNames="visitante_id"
+                                 baseTableName="facturacion"
+                                 constraintName="fk_facturacion__visitante_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="visitante"/>
+
+        <addForeignKeyConstraint baseColumnNames="empleado_id"
+                                 baseTableName="facturacion"
+                                 constraintName="fk_facturacion__empleado_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="empleado"/>
+
+        <addForeignKeyConstraint baseColumnNames="forma_de_pago_id"
+                                 baseTableName="facturacion"
+                                 constraintName="fk_facturacion__forma_de_pago_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="forma_de_pago"/>
+    </changeSet>
+</databaseChangeLog>

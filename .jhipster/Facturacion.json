@@ -1,0 +1,67 @@
+{
+  "applications": ["easyparking"],
+  "changelogDate": "20220607010432",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "facturacion",
+  "fields": [
+    {
+      "fieldName": "fechaFactura",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "valorFactura",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required", "unique"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Facturacion",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "horaIngreso",
+      "otherEntityName": "registro",
+      "otherEntityRelationshipName": "facturacion",
+      "relationshipName": "registro",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "nombreCliente",
+      "otherEntityName": "cliente",
+      "otherEntityRelationshipName": "facturacion",
+      "relationshipName": "cliente",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "nombrevisitante",
+      "otherEntityName": "visitante",
+      "otherEntityRelationshipName": "facturacion",
+      "relationshipName": "visitante",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "nombreEmpleado",
+      "otherEntityName": "empleado",
+      "otherEntityRelationshipName": "facturacion",
+      "relationshipName": "empleado",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "formaPago",
+      "otherEntityName": "formaDePago",
+      "otherEntityRelationshipName": "facturacion",
+      "relationshipName": "formaDePago",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "no"
+}
