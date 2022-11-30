@@ -23,6 +23,9 @@
     <!-- jhipster-needle-distribution-management -->
 
     <properties>
+        <!-- Sonar -->
+          <sonar.organization>eas-project</sonar.organization>
+          <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <!-- Build properties -->
         <maven.version>3.8.5</maven.version>
         <java.version>11</java.version>
