@@ -23,7 +23,7 @@
     <!-- jhipster-needle-distribution-management -->
 
     <properties>
-        <!-- Sonar -->
+        <!-- Sonar Organization -->
           <sonar.organization>eas-project</sonar.organization>
           <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <!-- Build properties -->
