@@ -23,11 +23,11 @@ public class Registro implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "hora_ingreso", nullable = false, unique = true)
+    @Column(name = "hora_ingreso", nullable = false)
     private ZonedDateTime horaIngreso;
 
     @NotNull
-    @Column(name = "hora_salida", nullable = false, unique = true)
+    @Column(name = "hora_salida", nullable = false)
     private ZonedDateTime horaSalida;
 
     @OneToMany(mappedBy = "registro")

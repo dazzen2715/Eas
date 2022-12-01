@@ -9,6 +9,15 @@
       "500": "Internal server error."
     },
     "concurrencyFailure": "Another user modified this data at the same time as you. Your changes were rejected.",
-    "validation": "Validation error on the server."
+    "validation": "Validation error on the server.",
+    "lastNameExist": "Already exist That last Name",
+    "phoneExist": "Already Exist That phone number",
+    "emailExist": "Already exist these email",
+    "nameExist": "Already exist these name",
+    "positionExist": "Already exist these position",
+    "placaExist": "Already exist that Placa",
+    "blockExist": "Already exist an Client with these Block",
+    "payFormExist": "Already exist the PayForm",
+    "vehicleTypeExist": "Already exist these vehicle Type"
   }
 }

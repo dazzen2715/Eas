@@ -15,10 +15,10 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="fecha_factura" type="date">
-                <constraints nullable="false" unique="true" uniqueConstraintName="ux_facturacion__fecha_factura" />
+                <constraints nullable="false"  />
             </column>
             <column name="valor_factura" type="${floatType}">
-                <constraints nullable="false" unique="true" uniqueConstraintName="ux_facturacion__valor_factura" />
+                <constraints nullable="false"  />
             </column>
             <column name="registro_id" type="bigint">
                 <constraints nullable="false" />

@@ -55,6 +55,12 @@ public class TipoVehiculoResource {
         log.debug("REST request to save TipoVehiculo : {}", tipoVehiculo);
         if (tipoVehiculo.getId() != null) {
             throw new BadRequestAlertException("A new tipoVehiculo cannot already have an ID", ENTITY_NAME, "idexists");
+        } else if (tipoVehiculoRepository.findByTipoVehiculo(tipoVehiculo.getTipoVehiculo()).isPresent()) {
+            throw new BadRequestAlertException(
+                "A new tipoVehiculo cannot already have existing VehicleType",
+                ENTITY_NAME,
+                "vehicleTypeExist"
+            );
         }
         TipoVehiculo result = tipoVehiculoRepository.save(tipoVehiculo);
         return ResponseEntity

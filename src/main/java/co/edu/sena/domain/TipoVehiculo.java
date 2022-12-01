@@ -28,7 +28,7 @@ public class TipoVehiculo implements Serializable {
 
     @NotNull
     @Size(max = 25)
-    @Column(name = "marca_vehiculo", length = 25, nullable = false, unique = true)
+    @Column(name = "marca_vehiculo", length = 25, nullable = false)
     private String marcaVehiculo;
 
     @OneToMany(mappedBy = "tipoVehiculo")

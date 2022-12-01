@@ -15,10 +15,10 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="hora_ingreso" type="${datetimeType}">
-                <constraints nullable="false" unique="true" uniqueConstraintName="ux_registro__hora_ingreso" />
+                <constraints nullable="false"  />
             </column>
             <column name="hora_salida" type="${datetimeType}">
-                <constraints nullable="false" unique="true" uniqueConstraintName="ux_registro__hora_salida" />
+                <constraints nullable="false"  />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>

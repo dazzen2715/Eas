@@ -55,6 +55,16 @@ public class ClienteResource {
         log.debug("REST request to save Cliente : {}", cliente);
         if (cliente.getId() != null) {
             throw new BadRequestAlertException("A new cliente cannot already have an ID", ENTITY_NAME, "idexists");
+        } else if (clienteRepository.findByNombreCliente(cliente.getNombreCliente()).isPresent()) {
+            throw new BadRequestAlertException("A new cliente cannot already have an Existing Name", ENTITY_NAME, "nameExist");
+        } else if (clienteRepository.findByBloqueCliente(cliente.getBloqueCliente()).isPresent()) {
+            throw new BadRequestAlertException("A new cliente cannot already have an Existing Block", ENTITY_NAME, "blockExist");
+        } else if (clienteRepository.findByCorreoCliente(cliente.getCorreoCliente()).isPresent()) {
+            throw new BadRequestAlertException("A new cliente cannot already have an Existing Email", ENTITY_NAME, "emailExist");
+        } else if (clienteRepository.findByApellidocliente(cliente.getApellidocliente()).isPresent()) {
+            throw new BadRequestAlertException("A new cliente cannot already have an Existing LastName", ENTITY_NAME, "lastNameExist");
+        } else if (clienteRepository.findByPhone(cliente.getPhone()).isPresent()) {
+            throw new BadRequestAlertException("A new cliente cannot already have an Existing phone", ENTITY_NAME, "phoneExist");
         }
         Cliente result = clienteRepository.save(cliente);
         return ResponseEntity

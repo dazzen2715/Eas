@@ -55,6 +55,8 @@ public class FormaDePagoResource {
         log.debug("REST request to save FormaDePago : {}", formaDePago);
         if (formaDePago.getId() != null) {
             throw new BadRequestAlertException("A new formaDePago cannot already have an ID", ENTITY_NAME, "idexists");
+        } else if (formaDePagoRepository.findByFormaPago(formaDePago.getFormaPago()).isPresent()) {
+            throw new BadRequestAlertException("A new empleado cannot already have an Existing Pay Form", ENTITY_NAME, "payFormExist");
         }
         FormaDePago result = formaDePagoRepository.save(formaDePago);
         return ResponseEntity

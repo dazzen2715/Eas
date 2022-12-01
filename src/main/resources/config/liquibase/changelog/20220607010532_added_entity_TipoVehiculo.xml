@@ -18,7 +18,7 @@
                 <constraints nullable="false" unique="true" uniqueConstraintName="ux_tipo_vehiculo__tipo_vehiculo" />
             </column>
             <column name="marca_vehiculo" type="varchar(25)">
-                <constraints nullable="false" unique="true" uniqueConstraintName="ux_tipo_vehiculo__marca_vehiculo" />
+                <constraints nullable="false" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>

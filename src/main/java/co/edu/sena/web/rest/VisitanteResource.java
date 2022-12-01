@@ -55,6 +55,12 @@ public class VisitanteResource {
         log.debug("REST request to save Visitante : {}", visitante);
         if (visitante.getId() != null) {
             throw new BadRequestAlertException("A new visitante cannot already have an ID", ENTITY_NAME, "idexists");
+        } else if (visitanteRepository.findByNombrevisitante(visitante.getNombrevisitante()).isPresent()) {
+            throw new BadRequestAlertException("A new visitante cannot already have an Existing name", ENTITY_NAME, "nameExist");
+        } else if (visitanteRepository.findByApellido(visitante.getApellido()).isPresent()) {
+            throw new BadRequestAlertException("A new visitante cannot already have an Existing LastName", ENTITY_NAME, "lastNameExist");
+        } else if (visitanteRepository.findByPhone(visitante.getPhone()).isPresent()) {
+            throw new BadRequestAlertException("A new visitante cannot already have an Existing Phone", ENTITY_NAME, "phoneExist");
         }
         Visitante result = visitanteRepository.save(visitante);
         return ResponseEntity

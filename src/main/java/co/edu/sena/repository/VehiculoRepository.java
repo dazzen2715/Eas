@@ -39,4 +39,6 @@ public interface VehiculoRepository extends JpaRepository<Vehiculo, Long> {
         "select vehiculo from Vehiculo vehiculo left join fetch vehiculo.tipoVehiculo left join fetch vehiculo.registro where vehiculo.id =:id"
     )
     Optional<Vehiculo> findOneWithToOneRelationships(@Param("id") Long id);
+
+    Optional<Vehiculo> findByPlaca(String placa);
 }

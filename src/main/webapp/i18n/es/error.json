@@ -9,6 +9,15 @@
       "500": "Error interno del servidor."
     },
     "concurrencyFailure": "Otro usuario ha modificado estos datos al mismo tiempo que tú. Tus cambios fueron rechazados.",
-    "validation": "Error de validación en el servidor."
+    "validation": "Error de validación en el servidor.",
+    "lastNameExist": "Ya existe ese Apellido",
+    "phoneExist": "Ya existe ese numero de telefono ",
+    "emailExist": "Ya existe un email con esos datos",
+    "nameExist": "Ese nombre ya existe",
+    "positionExist": "Ya existe un registro asociado a esa posición",
+    "placaExist": "Ya existe un registro asociado a esa placa",
+    "blockExist": "Ya existe un un registro asociado a ese bloque",
+    "payFormExist": "Ya existe esa forma De Pago",
+    "vehicleTypeExist": "Ya existe ese tipo de Vehiculo"
   }
 }

@@ -1,6 +1,7 @@
 package co.edu.sena.repository;
 
 import co.edu.sena.domain.Cliente;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
@@ -9,4 +10,10 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface ClienteRepository extends JpaRepository<Cliente, Long> {}
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+    Optional<Cliente> findByNombreCliente(String nombre);
+    Optional<Cliente> findByApellidocliente(String apellido);
+    Optional<Cliente> findByBloqueCliente(String bloque);
+    Optional<Cliente> findByPhone(String phone);
+    Optional<Cliente> findByCorreoCliente(String correo);
+}

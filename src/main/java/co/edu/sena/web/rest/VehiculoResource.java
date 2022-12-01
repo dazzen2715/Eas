@@ -55,6 +55,8 @@ public class VehiculoResource {
         log.debug("REST request to save Vehiculo : {}", vehiculo);
         if (vehiculo.getId() != null) {
             throw new BadRequestAlertException("A new vehiculo cannot already have an ID", ENTITY_NAME, "idexists");
+        } else if (vehiculoRepository.findByPlaca(vehiculo.getPlaca()).isPresent()) {
+            throw new BadRequestAlertException("A new Vehiculo cannot already have an Existing Placa", ENTITY_NAME, "placaExist");
         }
         Vehiculo result = vehiculoRepository.save(vehiculo);
         return ResponseEntity

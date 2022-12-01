@@ -21,11 +21,11 @@ public class Facturacion implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "fecha_factura", nullable = false, unique = true)
+    @Column(name = "fecha_factura", nullable = false)
     private LocalDate fechaFactura;
 
     @NotNull
-    @Column(name = "valor_factura", nullable = false, unique = true)
+    @Column(name = "valor_factura", nullable = false)
     private Float valorFactura;
 
     @ManyToOne(optional = false)
