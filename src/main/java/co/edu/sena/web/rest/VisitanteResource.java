@@ -2,6 +2,7 @@ package co.edu.sena.web.rest;
 
 import co.edu.sena.domain.Visitante;
 import co.edu.sena.repository.VisitanteRepository;
+import co.edu.sena.security.AuthoritiesConstants;
 import co.edu.sena.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -14,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import tech.jhipster.web.util.HeaderUtil;
@@ -48,6 +50,7 @@ public class VisitanteResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/visitantes")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Visitante> createVisitante(@Valid @RequestBody Visitante visitante) throws URISyntaxException {
         log.debug("REST request to save Visitante : {}", visitante);
         if (visitante.getId() != null) {
@@ -71,6 +74,7 @@ public class VisitanteResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/visitantes/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Visitante> updateVisitante(
         @PathVariable(value = "id", required = false) final Long id,
         @Valid @RequestBody Visitante visitante
@@ -106,6 +110,7 @@ public class VisitanteResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PatchMapping(value = "/visitantes/{id}", consumes = { "application/json", "application/merge-patch+json" })
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Visitante> partialUpdateVisitante(
         @PathVariable(value = "id", required = false) final Long id,
         @NotNull @RequestBody Visitante visitante
@@ -151,6 +156,7 @@ public class VisitanteResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of visitantes in body.
      */
     @GetMapping("/visitantes")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public List<Visitante> getAllVisitantes() {
         log.debug("REST request to get all Visitantes");
         return visitanteRepository.findAll();
@@ -163,6 +169,7 @@ public class VisitanteResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the visitante, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/visitantes/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Visitante> getVisitante(@PathVariable Long id) {
         log.debug("REST request to get Visitante : {}", id);
         Optional<Visitante> visitante = visitanteRepository.findById(id);
@@ -176,6 +183,7 @@ public class VisitanteResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/visitantes/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Void> deleteVisitante(@PathVariable Long id) {
         log.debug("REST request to delete Visitante : {}", id);
         visitanteRepository.deleteById(id);

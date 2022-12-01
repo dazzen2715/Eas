@@ -14,6 +14,7 @@ import co.edu.sena.domain.FormaDePago;
 import co.edu.sena.domain.Registro;
 import co.edu.sena.domain.Visitante;
 import co.edu.sena.repository.FacturacionRepository;
+import co.edu.sena.security.AuthoritiesConstants;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ import org.springframework.transaction.annotation.Transactional;
 @IntegrationTest
 @ExtendWith(MockitoExtension.class)
 @AutoConfigureMockMvc
-@WithMockUser
+@WithMockUser(authorities = AuthoritiesConstants.ADMIN)
 class FacturacionResourceIT {
 
     private static final LocalDate DEFAULT_FECHA_FACTURA = LocalDate.ofEpochDay(0L);

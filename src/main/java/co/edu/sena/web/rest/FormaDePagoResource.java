@@ -2,6 +2,7 @@ package co.edu.sena.web.rest;
 
 import co.edu.sena.domain.FormaDePago;
 import co.edu.sena.repository.FormaDePagoRepository;
+import co.edu.sena.security.AuthoritiesConstants;
 import co.edu.sena.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -14,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import tech.jhipster.web.util.HeaderUtil;
@@ -48,6 +50,7 @@ public class FormaDePagoResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/forma-de-pagos")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<FormaDePago> createFormaDePago(@Valid @RequestBody FormaDePago formaDePago) throws URISyntaxException {
         log.debug("REST request to save FormaDePago : {}", formaDePago);
         if (formaDePago.getId() != null) {
@@ -71,6 +74,7 @@ public class FormaDePagoResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/forma-de-pagos/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<FormaDePago> updateFormaDePago(
         @PathVariable(value = "id", required = false) final Long id,
         @Valid @RequestBody FormaDePago formaDePago
@@ -105,7 +109,9 @@ public class FormaDePagoResource {
      * or with status {@code 500 (Internal Server Error)} if the formaDePago couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
+
     @PatchMapping(value = "/forma-de-pagos/{id}", consumes = { "application/json", "application/merge-patch+json" })
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<FormaDePago> partialUpdateFormaDePago(
         @PathVariable(value = "id", required = false) final Long id,
         @NotNull @RequestBody FormaDePago formaDePago
@@ -145,6 +151,7 @@ public class FormaDePagoResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of formaDePagos in body.
      */
     @GetMapping("/forma-de-pagos")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public List<FormaDePago> getAllFormaDePagos() {
         log.debug("REST request to get all FormaDePagos");
         return formaDePagoRepository.findAll();
@@ -157,6 +164,7 @@ public class FormaDePagoResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the formaDePago, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/forma-de-pagos/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<FormaDePago> getFormaDePago(@PathVariable Long id) {
         log.debug("REST request to get FormaDePago : {}", id);
         Optional<FormaDePago> formaDePago = formaDePagoRepository.findById(id);
@@ -170,6 +178,7 @@ public class FormaDePagoResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/forma-de-pagos/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Void> deleteFormaDePago(@PathVariable Long id) {
         log.debug("REST request to delete FormaDePago : {}", id);
         formaDePagoRepository.deleteById(id);

@@ -2,6 +2,7 @@ package co.edu.sena.web.rest;
 
 import co.edu.sena.domain.Empleado;
 import co.edu.sena.repository.EmpleadoRepository;
+import co.edu.sena.security.AuthoritiesConstants;
 import co.edu.sena.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -14,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import tech.jhipster.web.util.HeaderUtil;
@@ -48,6 +50,7 @@ public class EmpleadoResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/empleados")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')")
     public ResponseEntity<Empleado> createEmpleado(@Valid @RequestBody Empleado empleado) throws URISyntaxException {
         log.debug("REST request to save Empleado : {}", empleado);
         if (empleado.getId() != null) {
@@ -71,6 +74,7 @@ public class EmpleadoResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/empleados/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')")
     public ResponseEntity<Empleado> updateEmpleado(
         @PathVariable(value = "id", required = false) final Long id,
         @Valid @RequestBody Empleado empleado
@@ -106,6 +110,7 @@ public class EmpleadoResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PatchMapping(value = "/empleados/{id}", consumes = { "application/json", "application/merge-patch+json" })
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')")
     public ResponseEntity<Empleado> partialUpdateEmpleado(
         @PathVariable(value = "id", required = false) final Long id,
         @NotNull @RequestBody Empleado empleado
@@ -154,6 +159,7 @@ public class EmpleadoResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of empleados in body.
      */
     @GetMapping("/empleados")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public List<Empleado> getAllEmpleados() {
         log.debug("REST request to get all Empleados");
         return empleadoRepository.findAll();
@@ -179,6 +185,7 @@ public class EmpleadoResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/empleados/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')")
     public ResponseEntity<Void> deleteEmpleado(@PathVariable Long id) {
         log.debug("REST request to delete Empleado : {}", id);
         empleadoRepository.deleteById(id);

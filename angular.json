@@ -100,6 +100,7 @@
   },
   "defaultProject": "easyparking",
   "cli": {
+    "analytics": "59f01d59-2ee9-4a44-a77c-62e6fde841b1",
     "cache": {
       "enabled": true,
       "path": "./target/angular/",

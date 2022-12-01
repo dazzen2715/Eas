@@ -2,6 +2,7 @@ package co.edu.sena.web.rest;
 
 import co.edu.sena.domain.Facturacion;
 import co.edu.sena.repository.FacturacionRepository;
+import co.edu.sena.security.AuthoritiesConstants;
 import co.edu.sena.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -14,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import tech.jhipster.web.util.HeaderUtil;
@@ -48,6 +50,7 @@ public class FacturacionResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/facturacions")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Facturacion> createFacturacion(@Valid @RequestBody Facturacion facturacion) throws URISyntaxException {
         log.debug("REST request to save Facturacion : {}", facturacion);
         if (facturacion.getId() != null) {
@@ -71,6 +74,7 @@ public class FacturacionResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/facturacions/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Facturacion> updateFacturacion(
         @PathVariable(value = "id", required = false) final Long id,
         @Valid @RequestBody Facturacion facturacion
@@ -106,6 +110,7 @@ public class FacturacionResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PatchMapping(value = "/facturacions/{id}", consumes = { "application/json", "application/merge-patch+json" })
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Facturacion> partialUpdateFacturacion(
         @PathVariable(value = "id", required = false) final Long id,
         @NotNull @RequestBody Facturacion facturacion
@@ -149,6 +154,7 @@ public class FacturacionResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of facturacions in body.
      */
     @GetMapping("/facturacions")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public List<Facturacion> getAllFacturacions(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
         log.debug("REST request to get all Facturacions");
         return facturacionRepository.findAllWithEagerRelationships();
@@ -174,6 +180,7 @@ public class FacturacionResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/facturacions/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Void> deleteFacturacion(@PathVariable Long id) {
         log.debug("REST request to delete Facturacion : {}", id);
         facturacionRepository.deleteById(id);

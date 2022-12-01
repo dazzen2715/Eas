@@ -2,6 +2,7 @@ package co.edu.sena.web.rest;
 
 import co.edu.sena.domain.Vehiculo;
 import co.edu.sena.repository.VehiculoRepository;
+import co.edu.sena.security.AuthoritiesConstants;
 import co.edu.sena.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -14,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import tech.jhipster.web.util.HeaderUtil;
@@ -48,6 +50,7 @@ public class VehiculoResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/vehiculos")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Vehiculo> createVehiculo(@Valid @RequestBody Vehiculo vehiculo) throws URISyntaxException {
         log.debug("REST request to save Vehiculo : {}", vehiculo);
         if (vehiculo.getId() != null) {
@@ -71,6 +74,7 @@ public class VehiculoResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/vehiculos/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Vehiculo> updateVehiculo(
         @PathVariable(value = "id", required = false) final Long id,
         @Valid @RequestBody Vehiculo vehiculo
@@ -106,6 +110,7 @@ public class VehiculoResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PatchMapping(value = "/vehiculos/{id}", consumes = { "application/json", "application/merge-patch+json" })
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Vehiculo> partialUpdateVehiculo(
         @PathVariable(value = "id", required = false) final Long id,
         @NotNull @RequestBody Vehiculo vehiculo
@@ -146,6 +151,7 @@ public class VehiculoResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of vehiculos in body.
      */
     @GetMapping("/vehiculos")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public List<Vehiculo> getAllVehiculos(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
         log.debug("REST request to get all Vehiculos");
         return vehiculoRepository.findAllWithEagerRelationships();
@@ -158,6 +164,7 @@ public class VehiculoResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the vehiculo, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/vehiculos/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Vehiculo> getVehiculo(@PathVariable Long id) {
         log.debug("REST request to get Vehiculo : {}", id);
         Optional<Vehiculo> vehiculo = vehiculoRepository.findOneWithEagerRelationships(id);
@@ -171,6 +178,7 @@ public class VehiculoResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/vehiculos/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Void> deleteVehiculo(@PathVariable Long id) {
         log.debug("REST request to delete Vehiculo : {}", id);
         vehiculoRepository.deleteById(id);

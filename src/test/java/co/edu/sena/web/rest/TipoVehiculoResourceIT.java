@@ -8,6 +8,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import co.edu.sena.IntegrationTest;
 import co.edu.sena.domain.TipoVehiculo;
 import co.edu.sena.repository.TipoVehiculoRepository;
+import co.edu.sena.security.AuthoritiesConstants;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
@@ -26,7 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @IntegrationTest
 @AutoConfigureMockMvc
-@WithMockUser
+@WithMockUser(authorities = AuthoritiesConstants.ADMIN)
 class TipoVehiculoResourceIT {
 
     private static final String DEFAULT_TIPO_VEHICULO = "AAAAAAAAAA";

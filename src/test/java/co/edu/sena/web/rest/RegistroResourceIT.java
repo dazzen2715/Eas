@@ -9,6 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import co.edu.sena.IntegrationTest;
 import co.edu.sena.domain.Registro;
 import co.edu.sena.repository.RegistroRepository;
+import co.edu.sena.security.AuthoritiesConstants;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
@@ -31,7 +32,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @IntegrationTest
 @AutoConfigureMockMvc
-@WithMockUser
+@WithMockUser(authorities = AuthoritiesConstants.ADMIN)
 class RegistroResourceIT {
 
     private static final ZonedDateTime DEFAULT_HORA_INGRESO = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);

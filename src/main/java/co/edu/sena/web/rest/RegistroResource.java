@@ -2,6 +2,7 @@ package co.edu.sena.web.rest;
 
 import co.edu.sena.domain.Registro;
 import co.edu.sena.repository.RegistroRepository;
+import co.edu.sena.security.AuthoritiesConstants;
 import co.edu.sena.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -14,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import tech.jhipster.web.util.HeaderUtil;
@@ -48,6 +50,7 @@ public class RegistroResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/registros")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Registro> createRegistro(@Valid @RequestBody Registro registro) throws URISyntaxException {
         log.debug("REST request to save Registro : {}", registro);
         if (registro.getId() != null) {
@@ -71,6 +74,7 @@ public class RegistroResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/registros/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Registro> updateRegistro(
         @PathVariable(value = "id", required = false) final Long id,
         @Valid @RequestBody Registro registro
@@ -106,6 +110,7 @@ public class RegistroResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PatchMapping(value = "/registros/{id}", consumes = { "application/json", "application/merge-patch+json" })
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Registro> partialUpdateRegistro(
         @PathVariable(value = "id", required = false) final Long id,
         @NotNull @RequestBody Registro registro
@@ -148,6 +153,7 @@ public class RegistroResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of registros in body.
      */
     @GetMapping("/registros")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public List<Registro> getAllRegistros() {
         log.debug("REST request to get all Registros");
         return registroRepository.findAll();
@@ -160,6 +166,7 @@ public class RegistroResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the registro, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/registros/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Registro> getRegistro(@PathVariable Long id) {
         log.debug("REST request to get Registro : {}", id);
         Optional<Registro> registro = registroRepository.findById(id);
@@ -173,6 +180,7 @@ public class RegistroResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/registros/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Void> deleteRegistro(@PathVariable Long id) {
         log.debug("REST request to delete Registro : {}", id);
         registroRepository.deleteById(id);

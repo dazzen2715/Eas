@@ -2,6 +2,7 @@ package co.edu.sena.web.rest;
 
 import co.edu.sena.domain.TipoVehiculo;
 import co.edu.sena.repository.TipoVehiculoRepository;
+import co.edu.sena.security.AuthoritiesConstants;
 import co.edu.sena.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -14,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import tech.jhipster.web.util.HeaderUtil;
@@ -48,6 +50,7 @@ public class TipoVehiculoResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/tipo-vehiculos")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<TipoVehiculo> createTipoVehiculo(@Valid @RequestBody TipoVehiculo tipoVehiculo) throws URISyntaxException {
         log.debug("REST request to save TipoVehiculo : {}", tipoVehiculo);
         if (tipoVehiculo.getId() != null) {
@@ -71,6 +74,7 @@ public class TipoVehiculoResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/tipo-vehiculos/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<TipoVehiculo> updateTipoVehiculo(
         @PathVariable(value = "id", required = false) final Long id,
         @Valid @RequestBody TipoVehiculo tipoVehiculo
@@ -106,6 +110,7 @@ public class TipoVehiculoResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PatchMapping(value = "/tipo-vehiculos/{id}", consumes = { "application/json", "application/merge-patch+json" })
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<TipoVehiculo> partialUpdateTipoVehiculo(
         @PathVariable(value = "id", required = false) final Long id,
         @NotNull @RequestBody TipoVehiculo tipoVehiculo
@@ -148,6 +153,7 @@ public class TipoVehiculoResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tipoVehiculos in body.
      */
     @GetMapping("/tipo-vehiculos")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public List<TipoVehiculo> getAllTipoVehiculos() {
         log.debug("REST request to get all TipoVehiculos");
         return tipoVehiculoRepository.findAll();
@@ -160,6 +166,7 @@ public class TipoVehiculoResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tipoVehiculo, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/tipo-vehiculos/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<TipoVehiculo> getTipoVehiculo(@PathVariable Long id) {
         log.debug("REST request to get TipoVehiculo : {}", id);
         Optional<TipoVehiculo> tipoVehiculo = tipoVehiculoRepository.findById(id);
@@ -173,6 +180,7 @@ public class TipoVehiculoResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/tipo-vehiculos/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Void> deleteTipoVehiculo(@PathVariable Long id) {
         log.debug("REST request to delete TipoVehiculo : {}", id);
         tipoVehiculoRepository.deleteById(id);

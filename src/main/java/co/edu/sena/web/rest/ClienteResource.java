@@ -2,6 +2,7 @@ package co.edu.sena.web.rest;
 
 import co.edu.sena.domain.Cliente;
 import co.edu.sena.repository.ClienteRepository;
+import co.edu.sena.security.AuthoritiesConstants;
 import co.edu.sena.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -14,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import tech.jhipster.web.util.HeaderUtil;
@@ -48,6 +50,7 @@ public class ClienteResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/clientes")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Cliente> createCliente(@Valid @RequestBody Cliente cliente) throws URISyntaxException {
         log.debug("REST request to save Cliente : {}", cliente);
         if (cliente.getId() != null) {
@@ -71,6 +74,7 @@ public class ClienteResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/clientes/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Cliente> updateCliente(
         @PathVariable(value = "id", required = false) final Long id,
         @Valid @RequestBody Cliente cliente
@@ -106,6 +110,7 @@ public class ClienteResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PatchMapping(value = "/clientes/{id}", consumes = { "application/json", "application/merge-patch+json" })
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Cliente> partialUpdateCliente(
         @PathVariable(value = "id", required = false) final Long id,
         @NotNull @RequestBody Cliente cliente
@@ -157,6 +162,7 @@ public class ClienteResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of clientes in body.
      */
     @GetMapping("/clientes")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public List<Cliente> getAllClientes() {
         log.debug("REST request to get all Clientes");
         return clienteRepository.findAll();
@@ -169,6 +175,7 @@ public class ClienteResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the cliente, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/clientes/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Cliente> getCliente(@PathVariable Long id) {
         log.debug("REST request to get Cliente : {}", id);
         Optional<Cliente> cliente = clienteRepository.findById(id);
@@ -182,6 +189,7 @@ public class ClienteResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/clientes/{id}")
+    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
     public ResponseEntity<Void> deleteCliente(@PathVariable Long id) {
         log.debug("REST request to delete Cliente : {}", id);
         clienteRepository.deleteById(id);

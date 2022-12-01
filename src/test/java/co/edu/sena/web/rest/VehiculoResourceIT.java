@@ -11,6 +11,7 @@ import co.edu.sena.domain.Registro;
 import co.edu.sena.domain.TipoVehiculo;
 import co.edu.sena.domain.Vehiculo;
 import co.edu.sena.repository.VehiculoRepository;
+import co.edu.sena.security.AuthoritiesConstants;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -36,7 +37,7 @@ import org.springframework.transaction.annotation.Transactional;
 @IntegrationTest
 @ExtendWith(MockitoExtension.class)
 @AutoConfigureMockMvc
-@WithMockUser
+@WithMockUser(authorities = AuthoritiesConstants.ADMIN)
 class VehiculoResourceIT {
 
     private static final String DEFAULT_PLACA = "AAAAAAAAAA";

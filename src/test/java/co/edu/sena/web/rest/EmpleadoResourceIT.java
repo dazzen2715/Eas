@@ -8,6 +8,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import co.edu.sena.IntegrationTest;
 import co.edu.sena.domain.Empleado;
 import co.edu.sena.repository.EmpleadoRepository;
+import co.edu.sena.security.AuthoritiesConstants;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
@@ -26,7 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @IntegrationTest
 @AutoConfigureMockMvc
-@WithMockUser
+@WithMockUser(authorities = AuthoritiesConstants.ADMIN)
 class EmpleadoResourceIT {
 
     private static final String DEFAULT_NOMBRE_EMPLEADO = "AAAAAAAAAA";
