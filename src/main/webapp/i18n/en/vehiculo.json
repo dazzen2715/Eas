@@ -4,23 +4,23 @@
       "home": {
         "title": "Vehiculos",
         "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Vehiculo",
-        "createOrEditLabel": "Create or edit a Vehiculo",
-        "notFound": "No Vehiculos found"
+        "createLabel": "Create a new Vehicle",
+        "createOrEditLabel": "Create or edit a Vehicle",
+        "notFound": "No Vehicle found"
       },
-      "created": "A new Vehiculo is created with identifier {{ param }}",
-      "updated": "A Vehiculo is updated with identifier {{ param }}",
-      "deleted": "A Vehiculo is deleted with identifier {{ param }}",
+      "created": "A new Vehicle is created with identifier {{ param }}",
+      "updated": "A Vehicle is updated with identifier {{ param }}",
+      "deleted": "A Vehicle is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete Vehiculo {{ id }}?"
+        "question": "Are you sure you want to delete Vehicle {{ id }}?"
       },
       "detail": {
-        "title": "Vehiculo"
+        "title": "Vehicle"
       },
       "id": "ID",
       "placa": "Placa",
-      "tipoVehiculo": "Tipo Vehiculo",
-      "registro": "Registro"
+      "tipoVehiculo": "Vehicle Type",
+      "registro": "Record"
     }
   }
 }
