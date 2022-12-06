@@ -2,10 +2,10 @@
   "easyparkingApp": {
     "cliente": {
       "home": {
-        "title": "Clientes",
+        "title": "Client",
         "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Cliente",
-        "createOrEditLabel": "Create or edit a Cliente",
+        "createLabel": "Create a new Client",
+        "createOrEditLabel": "Create or edit a Client",
         "notFound": "No Clientes found"
       },
       "created": "A new Cliente is created with identifier {{ param }}",
@@ -18,12 +18,12 @@
         "title": "Cliente"
       },
       "id": "ID",
-      "nombreCliente": "Nombre Cliente",
-      "apellidocliente": "Apellidocliente",
-      "bloqueCliente": "Bloque Cliente",
+      "nombrCliente": "client Name",
+      "apellidocliente": "client surname",
+      "bloqueCliente": "client block",
       "phone": "Phone",
-      "correoCliente": "Correo Cliente",
-      "facturacion": "Facturacion"
+      "correoCliente": "client mail",
+      "facturacion": "billing"
     }
   }
 }
