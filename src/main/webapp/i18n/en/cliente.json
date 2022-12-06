@@ -6,16 +6,16 @@
         "refreshListLabel": "Refresh list",
         "createLabel": "Create a new Client",
         "createOrEditLabel": "Create or edit a Client",
-        "notFound": "No Clientes found"
+        "notFound": "No Client found"
       },
-      "created": "A new Cliente is created with identifier {{ param }}",
-      "updated": "A Cliente is updated with identifier {{ param }}",
-      "deleted": "A Cliente is deleted with identifier {{ param }}",
+      "created": "A new Client is created with identifier {{ param }}",
+      "updated": "A Client is updated with identifier {{ param }}",
+      "deleted": "A Client is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete Cliente {{ id }}?"
+        "question": "Are you sure you want to delete Client {{ id }}?"
       },
       "detail": {
-        "title": "Cliente"
+        "title": "Client"
       },
       "id": "ID",
       "nombrCliente": "client Name",
