@@ -20,7 +20,7 @@
       "id": "ID",
       "nombreEmpleado": "Employee Name",
       "apellidoEmpleado": "Employee Surname ",
-      "cargoEmpleado": "Positio Employee",
+      "cargoEmpleado": "Position Employee",
       "phone": "Phone",
       "facturacion": "billing"
     }
