@@ -2,29 +2,29 @@
   "easyparkingApp": {
     "facturacion": {
       "home": {
-        "title": "Facturacions",
+        "title": "billing",
         "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Facturacion",
-        "createOrEditLabel": "Create or edit a Facturacion",
-        "notFound": "No Facturacions found"
+        "createLabel": "Create a new billing",
+        "createOrEditLabel": "Create or edit a billing",
+        "notFound": "No billing found"
       },
-      "created": "A new Facturacion is created with identifier {{ param }}",
-      "updated": "A Facturacion is updated with identifier {{ param }}",
-      "deleted": "A Facturacion is deleted with identifier {{ param }}",
+      "created": "A new billing is created with identifier {{ param }}",
+      "updated": "A billing is updated with identifier {{ param }}",
+      "deleted": "A billing is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete Facturacion {{ id }}?"
+        "question": "Are you sure you want to delete billing {{ id }}?"
       },
       "detail": {
         "title": "Facturacion"
       },
       "id": "ID",
-      "fechaFactura": "Fecha Factura",
-      "valorFactura": "Valor Factura",
-      "registro": "Registro",
-      "cliente": "Cliente",
-      "visitante": "Visitante",
-      "empleado": "Empleado",
-      "formaDePago": "Forma De Pago"
+      "fechaFactura": "Billing date",
+      "valorFactura": "Billing worth",
+      "registro": "Registration",
+      "cliente": "Client",
+      "visitante": "Visitor",
+      "empleado": "Employee,
+      "formaDePago": "way to pay"
     }
   }
 }
