@@ -23,7 +23,7 @@
       "registro": "Registration",
       "cliente": "Client",
       "visitante": "Visitor",
-      "empleado": "Employee,
+      "empleado": "Employee",
       "formaDePago": "way to pay"
     }
   }
