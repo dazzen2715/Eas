@@ -6,11 +6,15 @@ import { RegistroComponent } from '../list/registro.component';
 import { RegistroDetailComponent } from '../detail/registro-detail.component';
 import { RegistroUpdateComponent } from '../update/registro-update.component';
 import { RegistroRoutingResolveService } from './registro-routing-resolve.service';
+import { Authority } from '../../../config/authority.constants';
 
 const registroRoute: Routes = [
   {
     path: '',
     component: RegistroComponent,
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
+    },
     canActivate: [UserRouteAccessService],
   },
   {
@@ -18,6 +22,9 @@ const registroRoute: Routes = [
     component: RegistroDetailComponent,
     resolve: {
       registro: RegistroRoutingResolveService,
+    },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
     },
     canActivate: [UserRouteAccessService],
   },
@@ -27,6 +34,9 @@ const registroRoute: Routes = [
     resolve: {
       registro: RegistroRoutingResolveService,
     },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
+    },
     canActivate: [UserRouteAccessService],
   },
   {
@@ -34,6 +44,9 @@ const registroRoute: Routes = [
     component: RegistroUpdateComponent,
     resolve: {
       registro: RegistroRoutingResolveService,
+    },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
     },
     canActivate: [UserRouteAccessService],
   },

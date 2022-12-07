@@ -11,9 +11,6 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
-    Optional<Cliente> findByNombreCliente(String nombre);
-    Optional<Cliente> findByApellidocliente(String apellido);
-    Optional<Cliente> findByBloqueCliente(String bloque);
     Optional<Cliente> findByPhone(String phone);
     Optional<Cliente> findByCorreoCliente(String correo);
 }

@@ -6,11 +6,15 @@ import { FacturacionComponent } from '../list/facturacion.component';
 import { FacturacionDetailComponent } from '../detail/facturacion-detail.component';
 import { FacturacionUpdateComponent } from '../update/facturacion-update.component';
 import { FacturacionRoutingResolveService } from './facturacion-routing-resolve.service';
+import { Authority } from '../../../config/authority.constants';
 
 const facturacionRoute: Routes = [
   {
     path: '',
     component: FacturacionComponent,
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
+    },
     canActivate: [UserRouteAccessService],
   },
   {
@@ -18,6 +22,9 @@ const facturacionRoute: Routes = [
     component: FacturacionDetailComponent,
     resolve: {
       facturacion: FacturacionRoutingResolveService,
+    },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
     },
     canActivate: [UserRouteAccessService],
   },
@@ -27,6 +34,9 @@ const facturacionRoute: Routes = [
     resolve: {
       facturacion: FacturacionRoutingResolveService,
     },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
+    },
     canActivate: [UserRouteAccessService],
   },
   {
@@ -34,6 +44,9 @@ const facturacionRoute: Routes = [
     component: FacturacionUpdateComponent,
     resolve: {
       facturacion: FacturacionRoutingResolveService,
+    },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
     },
     canActivate: [UserRouteAccessService],
   },

@@ -15,13 +15,13 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="nombre_cliente" type="varchar(25)">
-                <constraints nullable="false" unique="true" uniqueConstraintName="ux_cliente__nombre_cliente" />
+                <constraints nullable="false"  />
             </column>
             <column name="apellidocliente" type="varchar(25)">
-                <constraints nullable="false" unique="true" uniqueConstraintName="ux_cliente__apellidocliente" />
+                <constraints nullable="false"  />
             </column>
             <column name="bloque_cliente" type="varchar(25)">
-                <constraints nullable="false" unique="true" uniqueConstraintName="ux_cliente__bloque_cliente" />
+                <constraints nullable="false" />
             </column>
             <column name="phone" type="varchar(25)">
                 <constraints nullable="false" unique="true" uniqueConstraintName="ux_cliente__phone" />

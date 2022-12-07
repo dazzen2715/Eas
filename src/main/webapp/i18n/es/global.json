@@ -17,6 +17,17 @@
         "registro": "Registro",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
+      "celador": {
+        "main": "Celador",
+        "cliente": "Cliente",
+        "visitante": "Visitante",
+        "formaDePago": "Forma De Pago",
+        "facturacion": "Facturacion",
+        "tipoVehiculo": "Tipo Vehiculo",
+        "vehiculo": "Vehiculo",
+        "registro": "Registro",
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+      },
       "client": {
         "main": "Clientes",
         "vehiculo": "Vehiculo",

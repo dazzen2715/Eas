@@ -23,17 +23,17 @@ public class Cliente implements Serializable {
 
     @NotNull
     @Size(max = 25)
-    @Column(name = "nombre_cliente", length = 25, nullable = false, unique = true)
+    @Column(name = "nombre_cliente", length = 25, nullable = false)
     private String nombreCliente;
 
     @NotNull
     @Size(max = 25)
-    @Column(name = "apellidocliente", length = 25, nullable = false, unique = true)
+    @Column(name = "apellidocliente", length = 25, nullable = false)
     private String apellidocliente;
 
     @NotNull
     @Size(max = 25)
-    @Column(name = "bloque_cliente", length = 25, nullable = false, unique = true)
+    @Column(name = "bloque_cliente", length = 25, nullable = false)
     private String bloqueCliente;
 
     @NotNull

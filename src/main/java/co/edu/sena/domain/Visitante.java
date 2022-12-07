@@ -23,11 +23,11 @@ public class Visitante implements Serializable {
 
     @NotNull
     @Size(max = 25)
-    @Column(name = "nombrevisitante", length = 25, nullable = false, unique = true)
+    @Column(name = "nombrevisitante", length = 25, nullable = false)
     private String nombrevisitante;
 
     @Size(max = 25)
-    @Column(name = "apellido", length = 25, unique = true)
+    @Column(name = "apellido", length = 25)
     private String apellido;
 
     @NotNull

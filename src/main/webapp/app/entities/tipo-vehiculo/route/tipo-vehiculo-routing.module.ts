@@ -6,11 +6,15 @@ import { TipoVehiculoComponent } from '../list/tipo-vehiculo.component';
 import { TipoVehiculoDetailComponent } from '../detail/tipo-vehiculo-detail.component';
 import { TipoVehiculoUpdateComponent } from '../update/tipo-vehiculo-update.component';
 import { TipoVehiculoRoutingResolveService } from './tipo-vehiculo-routing-resolve.service';
+import { Authority } from '../../../config/authority.constants';
 
 const tipoVehiculoRoute: Routes = [
   {
     path: '',
     component: TipoVehiculoComponent,
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
+    },
     canActivate: [UserRouteAccessService],
   },
   {
@@ -18,6 +22,9 @@ const tipoVehiculoRoute: Routes = [
     component: TipoVehiculoDetailComponent,
     resolve: {
       tipoVehiculo: TipoVehiculoRoutingResolveService,
+    },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
     },
     canActivate: [UserRouteAccessService],
   },
@@ -27,6 +34,9 @@ const tipoVehiculoRoute: Routes = [
     resolve: {
       tipoVehiculo: TipoVehiculoRoutingResolveService,
     },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
+    },
     canActivate: [UserRouteAccessService],
   },
   {
@@ -34,6 +44,9 @@ const tipoVehiculoRoute: Routes = [
     component: TipoVehiculoUpdateComponent,
     resolve: {
       tipoVehiculo: TipoVehiculoRoutingResolveService,
+    },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
     },
     canActivate: [UserRouteAccessService],
   },

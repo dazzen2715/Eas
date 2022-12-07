@@ -2,25 +2,25 @@
   "easyparkingApp": {
     "tipoVehiculo": {
       "home": {
-        "title": "Tipo Vehiculos",
+        "title": "Vehicle Type",
         "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Tipo Vehiculo",
-        "createOrEditLabel": "Create or edit a Tipo Vehiculo",
-        "notFound": "No Tipo Vehiculos found"
+        "createLabel": "Create a new Vehicle Type",
+        "createOrEditLabel": "Create or edit a Vehicle Type",
+        "notFound": "No Vehicle Type found"
       },
-      "created": "A new Tipo Vehiculo is created with identifier {{ param }}",
-      "updated": "A Tipo Vehiculo is updated with identifier {{ param }}",
-      "deleted": "A Tipo Vehiculo is deleted with identifier {{ param }}",
+      "created": "A new Vehicle Type is created with identifier {{ param }}",
+      "updated": "A Vehicle Type is updated with identifier {{ param }}",
+      "deleted": "A Vehicle Type is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete Tipo Vehiculo {{ id }}?"
+        "question": "Are you sure you want to delete Vehicle Type {{ id }}?"
       },
       "detail": {
-        "title": "Tipo Vehiculo"
+        "title": "Vehicle Type"
       },
       "id": "ID",
-      "tipoVehiculo": "Tipo Vehiculo",
-      "marcaVehiculo": "Marca Vehiculo",
-      "vehiculo": "Vehiculo"
+      "tipoVehiculo": "Vehicle Type",
+      "marcaVehiculo": "Vehicle Brand",
+      "vehiculo": "Vehicle"
     }
   }
 }

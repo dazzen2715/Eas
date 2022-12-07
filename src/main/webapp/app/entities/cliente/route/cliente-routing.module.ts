@@ -6,11 +6,15 @@ import { ClienteComponent } from '../list/cliente.component';
 import { ClienteDetailComponent } from '../detail/cliente-detail.component';
 import { ClienteUpdateComponent } from '../update/cliente-update.component';
 import { ClienteRoutingResolveService } from './cliente-routing-resolve.service';
+import { Authority } from '../../../config/authority.constants';
 
 const clienteRoute: Routes = [
   {
     path: '',
     component: ClienteComponent,
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
+    },
     canActivate: [UserRouteAccessService],
   },
   {
@@ -18,6 +22,9 @@ const clienteRoute: Routes = [
     component: ClienteDetailComponent,
     resolve: {
       cliente: ClienteRoutingResolveService,
+    },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
     },
     canActivate: [UserRouteAccessService],
   },
@@ -27,6 +34,9 @@ const clienteRoute: Routes = [
     resolve: {
       cliente: ClienteRoutingResolveService,
     },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
+    },
     canActivate: [UserRouteAccessService],
   },
   {
@@ -34,6 +44,9 @@ const clienteRoute: Routes = [
     component: ClienteUpdateComponent,
     resolve: {
       cliente: ClienteRoutingResolveService,
+    },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
     },
     canActivate: [UserRouteAccessService],
   },

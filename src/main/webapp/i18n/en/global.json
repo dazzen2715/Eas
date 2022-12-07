@@ -18,7 +18,7 @@
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "celador": {
-        "main": "Entities",
+        "main": "Celador",
         "cliente": "Client",
         "visitante": "Visitant",
         "formaDePago": "Way Form",

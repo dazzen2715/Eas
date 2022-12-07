@@ -55,10 +55,6 @@ public class EmpleadoResource {
         log.debug("REST request to save Empleado : {}", empleado);
         if (empleado.getId() != null) {
             throw new BadRequestAlertException("A new empleado cannot already have an ID", ENTITY_NAME, "idexists");
-        } else if (empleadoRepository.findByNombreEmpleado(empleado.getNombreEmpleado()).isPresent()) {
-            throw new BadRequestAlertException("A new empleado cannot already have an Existing Name", ENTITY_NAME, "nameExist");
-        } else if (empleadoRepository.findByApellidoEmpleado(empleado.getApellidoEmpleado()).isPresent()) {
-            throw new BadRequestAlertException("A new empleado cannot already have an Existing lastName", ENTITY_NAME, "lastNameExist");
         } else if (empleadoRepository.findByCargoEmpleado(empleado.getCargoEmpleado()).isPresent()) {
             throw new BadRequestAlertException("A new empleado cannot already have an Existing Position", ENTITY_NAME, "positionExist");
         } else if (empleadoRepository.findByPhone(empleado.getPhone()).isPresent()) {

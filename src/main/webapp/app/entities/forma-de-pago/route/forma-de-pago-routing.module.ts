@@ -6,11 +6,15 @@ import { FormaDePagoComponent } from '../list/forma-de-pago.component';
 import { FormaDePagoDetailComponent } from '../detail/forma-de-pago-detail.component';
 import { FormaDePagoUpdateComponent } from '../update/forma-de-pago-update.component';
 import { FormaDePagoRoutingResolveService } from './forma-de-pago-routing-resolve.service';
+import { Authority } from '../../../config/authority.constants';
 
 const formaDePagoRoute: Routes = [
   {
     path: '',
     component: FormaDePagoComponent,
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
+    },
     canActivate: [UserRouteAccessService],
   },
   {
@@ -18,6 +22,9 @@ const formaDePagoRoute: Routes = [
     component: FormaDePagoDetailComponent,
     resolve: {
       formaDePago: FormaDePagoRoutingResolveService,
+    },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
     },
     canActivate: [UserRouteAccessService],
   },
@@ -27,6 +34,9 @@ const formaDePagoRoute: Routes = [
     resolve: {
       formaDePago: FormaDePagoRoutingResolveService,
     },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
+    },
     canActivate: [UserRouteAccessService],
   },
   {
@@ -34,6 +44,9 @@ const formaDePagoRoute: Routes = [
     component: FormaDePagoUpdateComponent,
     resolve: {
       formaDePago: FormaDePagoRoutingResolveService,
+    },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
     },
     canActivate: [UserRouteAccessService],
   },

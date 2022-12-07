@@ -6,24 +6,24 @@
         "refreshListLabel": "Refresh list",
         "createLabel": "Create a new Client",
         "createOrEditLabel": "Create or edit a Client",
-        "notFound": "No Clientes found"
+        "notFound": "No Clients found"
       },
-      "created": "A new Cliente is created with identifier {{ param }}",
-      "updated": "A Cliente is updated with identifier {{ param }}",
-      "deleted": "A Cliente is deleted with identifier {{ param }}",
+      "created": "A new Client is created with identifier {{ param }}",
+      "updated": "A Client is updated with identifier {{ param }}",
+      "deleted": "A Clienteis deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete Cliente {{ id }}?"
+        "question": "Are you sure you want to delete Client {{ id }}?"
       },
       "detail": {
-        "title": "Cliente"
+        "title": "Client"
       },
       "id": "ID",
-      "nombreCliente": "Nombre Client",
+      "nombreCliente": "Name Client",
       "apellidocliente": "LastNameClient",
-      "bloqueCliente": "Bloque Cliente",
+      "bloqueCliente": "Client Block",
       "phone": "Phone",
-      "correoCliente": "Correo Cliente",
-      "facturacion": "Facturacion"
+      "correoCliente": "Email Client",
+      "facturacion": "Billing"
     }
   }
 }

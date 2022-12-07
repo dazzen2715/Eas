@@ -6,11 +6,15 @@ import { VisitanteComponent } from '../list/visitante.component';
 import { VisitanteDetailComponent } from '../detail/visitante-detail.component';
 import { VisitanteUpdateComponent } from '../update/visitante-update.component';
 import { VisitanteRoutingResolveService } from './visitante-routing-resolve.service';
+import { Authority } from '../../../config/authority.constants';
 
 const visitanteRoute: Routes = [
   {
     path: '',
     component: VisitanteComponent,
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
+    },
     canActivate: [UserRouteAccessService],
   },
   {
@@ -18,6 +22,9 @@ const visitanteRoute: Routes = [
     component: VisitanteDetailComponent,
     resolve: {
       visitante: VisitanteRoutingResolveService,
+    },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
     },
     canActivate: [UserRouteAccessService],
   },
@@ -27,6 +34,9 @@ const visitanteRoute: Routes = [
     resolve: {
       visitante: VisitanteRoutingResolveService,
     },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
+    },
     canActivate: [UserRouteAccessService],
   },
   {
@@ -34,6 +44,9 @@ const visitanteRoute: Routes = [
     component: VisitanteUpdateComponent,
     resolve: {
       visitante: VisitanteRoutingResolveService,
+    },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
     },
     canActivate: [UserRouteAccessService],
   },

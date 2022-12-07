@@ -12,6 +12,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface VisitanteRepository extends JpaRepository<Visitante, Long> {
     Optional<Visitante> findByPhone(String phone);
-    Optional<Visitante> findByApellido(String lastName);
-    Optional<Visitante> findByNombrevisitante(String name);
 }

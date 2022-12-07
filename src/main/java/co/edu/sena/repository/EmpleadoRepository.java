@@ -11,8 +11,6 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface EmpleadoRepository extends JpaRepository<Empleado, Long> {
-    Optional<Empleado> findByNombreEmpleado(String nombre);
-    Optional<Empleado> findByApellidoEmpleado(String apellidoEmpleado);
     Optional<Empleado> findByPhone(String phone);
     Optional<Empleado> findByCargoEmpleado(String cargo);
 }

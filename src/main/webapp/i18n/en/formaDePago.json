@@ -2,24 +2,24 @@
   "easyparkingApp": {
     "formaDePago": {
       "home": {
-        "title": "Forma De Pagos",
+        "title": "Pay Form",
         "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Forma De Pago",
-        "createOrEditLabel": "Create or edit a Forma De Pago",
-        "notFound": "No Forma De Pagos found"
+        "createLabel": "Create a new Pay Form",
+        "createOrEditLabel": "Create or edit a Pay Form",
+        "notFound": "No Pay Form found"
       },
-      "created": "A new Forma De Pago is created with identifier {{ param }}",
-      "updated": "A Forma De Pago is updated with identifier {{ param }}",
-      "deleted": "A Forma De Pago is deleted with identifier {{ param }}",
+      "created": "A new Pay Form is created with identifier {{ param }}",
+      "updated": "A Pay Form is updated with identifier {{ param }}",
+      "deleted": "A Pay Form is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete Forma De Pago {{ id }}?"
+        "question": "Are you sure you want to delete Pay Form {{ id }}?"
       },
       "detail": {
-        "title": "Forma De Pago"
+        "title": "Pay Form"
       },
       "id": "ID",
-      "formaPago": "Forma Pago",
-      "facturacion": "Facturacion"
+      "formaPago": "Pay Form",
+      "facturacion": "Billing"
     }
   }
 }

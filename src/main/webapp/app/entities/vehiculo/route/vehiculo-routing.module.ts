@@ -6,11 +6,15 @@ import { VehiculoComponent } from '../list/vehiculo.component';
 import { VehiculoDetailComponent } from '../detail/vehiculo-detail.component';
 import { VehiculoUpdateComponent } from '../update/vehiculo-update.component';
 import { VehiculoRoutingResolveService } from './vehiculo-routing-resolve.service';
+import { Authority } from '../../../config/authority.constants';
 
 const vehiculoRoute: Routes = [
   {
     path: '',
     component: VehiculoComponent,
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR, Authority.CLIENT],
+    },
     canActivate: [UserRouteAccessService],
   },
   {
@@ -18,6 +22,9 @@ const vehiculoRoute: Routes = [
     component: VehiculoDetailComponent,
     resolve: {
       vehiculo: VehiculoRoutingResolveService,
+    },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR, Authority.CLIENT],
     },
     canActivate: [UserRouteAccessService],
   },
@@ -27,6 +34,9 @@ const vehiculoRoute: Routes = [
     resolve: {
       vehiculo: VehiculoRoutingResolveService,
     },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
+    },
     canActivate: [UserRouteAccessService],
   },
   {
@@ -34,6 +44,9 @@ const vehiculoRoute: Routes = [
     component: VehiculoUpdateComponent,
     resolve: {
       vehiculo: VehiculoRoutingResolveService,
+    },
+    data: {
+      authorities: [Authority.ADMIN, Authority.CELADOR],
     },
     canActivate: [UserRouteAccessService],
   },

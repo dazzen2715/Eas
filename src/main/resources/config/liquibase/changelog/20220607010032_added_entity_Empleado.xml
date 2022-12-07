@@ -15,10 +15,10 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="nombre_empleado" type="varchar(20)">
-                <constraints nullable="false" unique="true" uniqueConstraintName="ux_empleado__nombre_empleado" />
+                <constraints nullable="false"  />
             </column>
             <column name="apellido_empleado" type="varchar(20)">
-                <constraints nullable="true" unique="true" uniqueConstraintName="ux_empleado__apellido_empleado" />
+                <constraints nullable="true"  />
             </column>
             <column name="cargo_empleado" type="varchar(20)">
                 <constraints nullable="false" unique="true" uniqueConstraintName="ux_empleado__cargo_empleado" />

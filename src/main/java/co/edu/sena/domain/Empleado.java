@@ -23,11 +23,11 @@ public class Empleado implements Serializable {
 
     @NotNull
     @Size(max = 20)
-    @Column(name = "nombre_empleado", length = 20, nullable = false, unique = true)
+    @Column(name = "nombre_empleado", length = 20, nullable = false)
     private String nombreEmpleado;
 
     @Size(max = 20)
-    @Column(name = "apellido_empleado", length = 20, unique = true)
+    @Column(name = "apellido_empleado", length = 20)
     private String apellidoEmpleado;
 
     @NotNull

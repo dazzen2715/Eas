@@ -6,11 +6,15 @@ import { EmpleadoComponent } from '../list/empleado.component';
 import { EmpleadoDetailComponent } from '../detail/empleado-detail.component';
 import { EmpleadoUpdateComponent } from '../update/empleado-update.component';
 import { EmpleadoRoutingResolveService } from './empleado-routing-resolve.service';
+import { Authority } from '../../../config/authority.constants';
 
 const empleadoRoute: Routes = [
   {
     path: '',
     component: EmpleadoComponent,
+    data: {
+      authorities: [Authority.ADMIN],
+    },
     canActivate: [UserRouteAccessService],
   },
   {
@@ -18,6 +22,9 @@ const empleadoRoute: Routes = [
     component: EmpleadoDetailComponent,
     resolve: {
       empleado: EmpleadoRoutingResolveService,
+    },
+    data: {
+      authorities: [Authority.ADMIN],
     },
     canActivate: [UserRouteAccessService],
   },
@@ -27,6 +34,9 @@ const empleadoRoute: Routes = [
     resolve: {
       empleado: EmpleadoRoutingResolveService,
     },
+    data: {
+      authorities: [Authority.ADMIN],
+    },
     canActivate: [UserRouteAccessService],
   },
   {
@@ -34,6 +44,9 @@ const empleadoRoute: Routes = [
     component: EmpleadoUpdateComponent,
     resolve: {
       empleado: EmpleadoRoutingResolveService,
+    },
+    data: {
+      authorities: [Authority.ADMIN],
     },
     canActivate: [UserRouteAccessService],
   },
