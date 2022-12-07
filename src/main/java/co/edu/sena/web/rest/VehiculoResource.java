@@ -153,7 +153,15 @@ public class VehiculoResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of vehiculos in body.
      */
     @GetMapping("/vehiculos")
-    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
+    @PreAuthorize(
+        "hasAuthority('" +
+        AuthoritiesConstants.ADMIN +
+        "')or hasAuthority('" +
+        AuthoritiesConstants.CELADOR +
+        "')or hasAuthority('" +
+        AuthoritiesConstants.CLIENT +
+        "')"
+    )
     public List<Vehiculo> getAllVehiculos(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
         log.debug("REST request to get all Vehiculos");
         return vehiculoRepository.findAllWithEagerRelationships();
@@ -166,7 +174,15 @@ public class VehiculoResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the vehiculo, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/vehiculos/{id}")
-    @PreAuthorize("hasAuthority('" + AuthoritiesConstants.ADMIN + "')or hasAuthority('" + AuthoritiesConstants.CELADOR + "')")
+    @PreAuthorize(
+        "hasAuthority('" +
+        AuthoritiesConstants.ADMIN +
+        "')or hasAuthority('" +
+        AuthoritiesConstants.CELADOR +
+        "')or hasAuthority('" +
+        AuthoritiesConstants.CLIENT +
+        "')"
+    )
     public ResponseEntity<Vehiculo> getVehiculo(@PathVariable Long id) {
         log.debug("REST request to get Vehiculo : {}", id);
         Optional<Vehiculo> vehiculo = vehiculoRepository.findOneWithEagerRelationships(id);

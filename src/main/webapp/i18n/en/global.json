@@ -7,14 +7,30 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
-        "empleado": "Empleado",
-        "cliente": "Cliente",
-        "visitante": "Visitante",
-        "formaDePago": "Forma De Pago",
-        "facturacion": "Facturacion",
-        "tipoVehiculo": "Tipo Vehiculo",
-        "vehiculo": "Vehiculo",
-        "registro": "Registro",
+        "empleado": "Employee",
+        "cliente": "Client",
+        "visitante": "Visitant",
+        "formaDePago": "Way Form",
+        "facturacion": "Billing",
+        "tipoVehiculo": "Vehicle Type",
+        "vehiculo": "Vehicle",
+        "registro": "Register",
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+      },
+      "celador": {
+        "main": "Entities",
+        "cliente": "Client",
+        "visitante": "Visitant",
+        "formaDePago": "Way Form",
+        "facturacion": "Billing",
+        "tipoVehiculo": "Vehicle Type",
+        "vehiculo": "Vehicle",
+        "registro": "Register",
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+      },
+      "client": {
+        "main": "Client",
+        "vehiculo": "Vehicle",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

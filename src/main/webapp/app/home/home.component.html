@@ -1,10 +1,14 @@
-<div class="row">
-  <div class="col-md-3">
-    <span class="hipster img-fluid rounded"></span>
-  </div>
-
+<div
+  class="row"
+  [ngStyle]="{
+    'margin-left': '20%',
+    'padding-bottom': '130px'
+  }"
+>
   <div class="col-md-9">
-    <h1 class="display-4"><span easyparkingTranslate="home.title">Welcome, Java Hipster!</span> (Easyparking)</h1>
+    <h1 class="display-4">
+      <span easyparkingTranslate="home.title" [translateValues]="{ username: account?.login }">Welcome User, {{ account?.login }}! </span>
+    </h1>
 
     <p class="lead" easyparkingTranslate="home.subtitle">This is your homepage</p>
 
@@ -36,53 +40,9 @@
       </div>
     </div>
 
-    <p easyparkingTranslate="home.question">If you have any question on JHipster:</p>
-
-    <ul>
-      <li>
-        <a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer" easyparkingTranslate="home.link.homepage"
-          >JHipster homepage</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://stackoverflow.com/tags/jhipster/info"
-          target="_blank"
-          rel="noopener noreferrer"
-          easyparkingTranslate="home.link.stackoverflow"
-          >JHipster on Stack Overflow</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/jhipster/generator-jhipster/issues?state=open"
-          target="_blank"
-          rel="noopener noreferrer"
-          easyparkingTranslate="home.link.bugtracker"
-          >JHipster bug tracker</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://gitter.im/jhipster/generator-jhipster"
-          target="_blank"
-          rel="noopener noreferrer"
-          easyparkingTranslate="home.link.chat"
-          >JHipster public chat room</a
-        >
-      </li>
-      <li>
-        <a href="https://twitter.com/jhipster" target="_blank" rel="noopener noreferrer" easyparkingTranslate="home.link.follow"
-          >follow @jhipster on Twitter</a
-        >
-      </li>
-    </ul>
-
     <p>
-      <span easyparkingTranslate="home.like">If you like JHipster, don't forget to give us a star on</span>
-      <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer" easyparkingTranslate="home.github"
-        >GitHub</a
-      >!
+      <span easyparkingTranslate="home.about">If you Have Answers About our Follow the next Link</span>
+      <a href="http://localhost:9000" target="_blank" rel="noopener noreferrer" easyparkingTranslate="home.github">GitHub</a>!
     </p>
   </div>
 </div>

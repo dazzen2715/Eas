@@ -17,6 +17,11 @@
         "registro": "Registro",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
+      "client": {
+        "main": "Clientes",
+        "vehiculo": "Vehiculo",
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+      },
       "account": {
         "main": "Cuenta",
         "settings": "Ajustes",
